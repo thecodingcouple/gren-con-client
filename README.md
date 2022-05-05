@@ -2,11 +2,14 @@
 
 Source code for https://www.gren-con.com (Work in progress)
 
+[Click here](https://github.com/thecodingcouple/gren-con-api) to view source code for the API.
+
 ## Synopsis
 
 ## Built With
 
-* [Vue 3](https://vuejs.org/) ?
+* [Vue 3](https://vuejs.org/)
+* [BoardGameGeek API v2](https://boardgamegeek.com/wiki/page/BGG_XML_API2) (maybe?)
 
 ## Useful Resources
 
