@@ -1,3 +1,15 @@
+# gren-con-client
+
+Source code for https://www.gren-con.com (Work in progress)
+
+[Click here](https://github.com/thecodingcouple/gren-con-api) to view source code for the API.
+
+## Synopsis
+
+We are building a website for hosting information about Gren Con, one day filled with gaming! 
+
+Why go through all this effort you may ask? For learning! This is an excuse to learn new skills and become more proficient with existing skills. 
+
 ## Built With
 
 * [Vue 3](https://vuejs.org/)
