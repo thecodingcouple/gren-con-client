@@ -4,12 +4,14 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div>Gren Con</div>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/library">Game Library</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav>
+    <section>
+      <div>Gren Con</div>
+      <nav>
+        <RouterLink class="navbar-link" to="/">Home</RouterLink>
+        <RouterLink class="navbar-link" to="/library">Game Library</RouterLink>
+        <RouterLink class="navbar-link" to="/about">About</RouterLink>
+      </nav>
+    </section>
   </header>
   <main>
     <RouterView />
@@ -25,6 +27,16 @@ import { RouterLink, RouterView } from 'vue-router'
 #app {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+#app * {
+  width: 100%;
+}
+
+#app > header > section,
+#app > main {
+  max-width: 1440px;
 }
 
 #app > main {
@@ -32,45 +44,56 @@ import { RouterLink, RouterView } from 'vue-router'
   padding: 15px;
 }
 
-header {
+section {
   display: flex;
   flex: 0;
-  background-color: var(--purple);
   height: 100%;
+  width: 100%;
   align-items: center;
-  box-shadow: 0 0 20px black;
 }
 
-header > div {
+header > section > div {
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--purple);
+  box-shadow: 0 0 20px black;
+}
+
 header,
-nav * {
+.navbar-link {
   color: white;
+  flex-basis: 0;
+  width: fix-content;
 }
 
 nav {
-  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
-nav * {
+.navbar-link:hover {
+  text-decoration: underline;
+}
+
+.navbar-link.router-link-active,
+.navbar-link.router-link-exact-active {
+  font-weight: bold;
+}
+
+.navbar-link {
+  white-space: nowrap;
   text-decoration: none;
   margin-left: 15px;
 }
 
-nav *:hover {
-  text-decoration: underline;
-}
-
-nav *.router-link-active,
-nav *.router-link-exact-active {
-  font-weight: bold;
-}
-
-header,
+header > section,
 footer {
   padding: 15px;
 }
