@@ -1,5 +1,5 @@
 <template>
   <main>
-    <div>Game Library stuff will go here</div>
+    <h1>Game Library View</h1>
   </main>
 </template>
