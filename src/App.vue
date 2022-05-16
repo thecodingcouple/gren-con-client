@@ -1,9 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useGameLibraryStore } from './stores/GameLibraryStore.js';
+
+const gameLibraryStore = useGameLibraryStore();
+gameLibraryStore.loadGameLibrary();
 </script>
 
 <template>
-  <header>
+  <header class="maxwidth">
     <section>
       <div>Gren Con</div>
       <nav>
@@ -13,10 +17,10 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </section>
   </header>
-  <main>
+  <main class="maxwidth">
     <RouterView />
   </main>
-  <footer>
+  <footer class="maxwidth">
     &copy; 2022 The 42nd
   </footer>
 </template>
@@ -30,18 +34,16 @@ import { RouterLink, RouterView } from 'vue-router'
   align-items: center;
 }
 
-#app * {
+#app > header,
+#app > footer,
+#app > main,
+nav {
   width: 100%;
-}
-
-#app > header > section,
-#app > main {
-  max-width: 1440px;
 }
 
 #app > main {
   flex: 1;
-  padding: 15px;
+  background: whitesmoke;
 }
 
 section {
@@ -53,9 +55,11 @@ section {
 }
 
 header > section > div {
+  white-space: nowrap;
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px rgba(0, 0, 0, .45);
 }
 
 header {
@@ -64,6 +68,7 @@ header {
   align-items: center;
   background-color: var(--purple);
   box-shadow: 0 0 20px black;
+  z-index: 2;
 }
 
 header,
@@ -99,7 +104,19 @@ footer {
 }
 
 footer {
-  background: var(--gold);
+  background: var(--orange);
+  color: white;
   text-align: center;
+}
+
+@media (max-width: 500px) {
+  header > section > div {
+    white-space: normal;
+  }
+
+  nav {
+    flex-direction: column;
+    text-align: right;
+  }
 }
 </style>
