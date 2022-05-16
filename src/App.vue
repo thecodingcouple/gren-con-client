@@ -10,6 +10,9 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink class="navbar-link" to="/">Home</RouterLink>
         <RouterLink class="navbar-link" to="/library">Game Library</RouterLink>
         <RouterLink class="navbar-link" to="/about">About</RouterLink>
+        <RouterLink class="navbar-link" to="/profile">
+          <img id="user-icon" src="./assets/user-icon.svg">
+        </RouterLink>
       </nav>
     </section>
   </header>
@@ -91,6 +94,10 @@ nav {
   white-space: nowrap;
   text-decoration: none;
   margin-left: 15px;
+}
+
+#user-icon {
+  width: 20px;
 }
 
 header > section,
