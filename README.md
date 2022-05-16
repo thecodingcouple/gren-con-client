@@ -77,7 +77,8 @@ Subsequent requests will return the user's game collection:
 
 ## Useful Resources
 
-* 
+* https://stripesgenerator.com/
+* https://color.adobe.com/create/color-wheel
 
 ## Recommended IDE Setup
 
