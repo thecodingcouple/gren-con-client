@@ -5,6 +5,10 @@ import { useGameLibraryStore } from '../stores/GameLibraryStore.js';
 
 const gameLibraryStore = useGameLibraryStore();
 
+if(!gameLibraryStore.count) {
+  await gameLibraryStore.loadGameLibrary();
+}
+
 onMounted(() => {
 
 });
@@ -27,5 +31,12 @@ onMounted(() => {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .library-section {
+    flex-direction: column;
+  }
 }
 </style>

@@ -1,9 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { useGameLibraryStore } from './stores/GameLibraryStore.js';
-
-const gameLibraryStore = useGameLibraryStore();
-gameLibraryStore.loadGameLibrary();
 </script>
 
 <template>
@@ -13,15 +9,17 @@ gameLibraryStore.loadGameLibrary();
       <nav>
         <RouterLink class="navbar-link" to="/">Home</RouterLink>
         <RouterLink class="navbar-link" to="/library">Game Library</RouterLink>
-        <RouterLink class="navbar-link" to="/about">About</RouterLink>
-        <RouterLink class="navbar-link" to="/profile">
+        <RouterLink class="navbar-link hidden" to="/about">About</RouterLink>
+        <RouterLink class="navbar-link hidden" to="/profile">
           <img id="user-icon" src="./assets/user-icon.svg">
         </RouterLink>
       </nav>
     </section>
   </header>
   <main class="maxwidth">
-    <RouterView />
+    <Suspense>
+      <RouterView />
+    </Suspense>
   </main>
   <footer class="maxwidth">
     &copy; 2022 The 42nd
@@ -70,7 +68,7 @@ header {
   flex-direction: column;
   align-items: center;
   background-color: var(--purple);
-  box-shadow: 0 0 20px black;
+  /* box-shadow: 0 0 20px black; */
   z-index: 2;
 }
 
@@ -111,9 +109,13 @@ footer {
 }
 
 footer {
-  background: var(--orange);
+  background: var(--purple);
   color: white;
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 500px) {
