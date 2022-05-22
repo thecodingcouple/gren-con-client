@@ -1,14 +1,20 @@
 <script setup>
+import { computed } from 'vue';
+
 const props = defineProps({
     name: String,
     imageUrl: String
+});
+
+const imgAlt = computed(() => {
+    return props.name ? `${props.name} board game box photo` : 'Board game box art';
 });
 
 </script>
 
 <template>
     <figure class="gamecard">
-        <img class="gamecard_image" :src="imageUrl" alt="A game" />
+        <img class="gamecard_image" :src="imageUrl" :alt="imgAlt" loading="lazy" />
         <figcaption>{{ name }}</figcaption>
     </figure>
 </template>
@@ -25,6 +31,7 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     box-shadow: 2px 2px 10px gray;
+    cursor: pointer;
 }
 
 .gamecard figcaption {
