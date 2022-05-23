@@ -24,10 +24,10 @@ export const useGameLibraryStore = defineStore({
 
                         this.games = items.map(item => {
                           let nameChildNode = Array.from(item.children).find(c => c.nodeName == "name");
-                          let name = nameChildNode.innerHTML;
+                          let name = nameChildNode.textContent;
 
                           let imageUrlChildNode = Array.from(item.children).find(c => c.nodeName == "image");
-                          let imageUrl = imageUrlChildNode.innerHTML;
+                          let imageUrl = imageUrlChildNode.textContent;
 
                           return {
                             name,
@@ -58,7 +58,7 @@ export const useGameLibraryStore = defineStore({
                         }
 
                         const descriptionChildNode = Array.from(item.children).find(c => c.nodeName == "description");
-                        const description = descriptionChildNode.innerHTML;
+                        const description = descriptionChildNode.textContent;
 
                         console.log(description);
 
