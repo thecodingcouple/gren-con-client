@@ -14,7 +14,10 @@ Why go through all this effort you may ask? For learning! This is an excuse to l
 
 * [Vue 3](https://vuejs.org/)
 * [BoardGameGeek API v2](https://boardgamegeek.com/wiki/page/BGG_XML_API2) (For Game Library page)
-* [Color Hunt (palette generator)](https://colorhunt.co/palette/541690ff4949ff8d29ffcd38)
+
+## Third Party Assets
+
+* [Dice Image](https://unsplash.com/photos/hFSnuPi0t3Q) by Joe Maldonado
 
 ## Connecting to the BoardGameGeek XML API
 
