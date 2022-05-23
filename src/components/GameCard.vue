@@ -49,19 +49,22 @@ const imgAlt = computed(() => {
     height: 100%;
     flex: 1;
     align-self: center;
+    object-fit: contain;
 }
 
 @media (max-width: 800px) {
     .gamecard {
         width: auto;
         height: auto;
+        margin-bottom: 30px;
     }
 
     .gamecard_image {
-        max-width: 450px;
+        max-width: 400px;
         max-height: none;
-        width: 450px;
-        height: 450px;
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
     }
 }
 </style>
