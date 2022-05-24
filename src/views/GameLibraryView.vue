@@ -17,6 +17,7 @@ onMounted(() => {
 <template>
   <main class="game-library-view">
     <h1>Game Library</h1>
+    <p>Choose from over <strong>{{ gameLibraryStore.roundedCount }}+</strong> board games and expansions!</p>
     <section class="library-section">
         <!-- Games -->
         <GameCard  v-for="(game, index) in gameLibraryStore.games" :key="index" :name="game.name" :imageUrl="game.imageUrl" />
@@ -26,6 +27,12 @@ onMounted(() => {
 
 <style>
 @import '@/assets/base.css';
+.game-library-view > p {
+  margin: 0 0 15px 15px;
+  font-size: 1.25rem;
+  overflow-wrap: break-word;
+}
+
 .library-section {
   display: flex;
   flex-direction: row;

@@ -8,7 +8,8 @@ export const useGameLibraryStore = defineStore({
     gameDetails: {}
   }),
   getters: {
-    count: (state) => state.games.length
+    count: (state) => state.games.length,
+    roundedCount: (state) => Math.round(state.games.length / 10) * 10
   },
   actions: {
     async loadGameLibrary() {
