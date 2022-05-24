@@ -3,23 +3,25 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
+  <header class="maxwidth">
     <section>
       <div>Gren Con</div>
       <nav>
-        <RouterLink class="navbar-link" to="/">Home</RouterLink>
+        <RouterLink class="navbar-link hidden" to="/">Home</RouterLink>
         <RouterLink class="navbar-link" to="/library">Game Library</RouterLink>
-        <RouterLink class="navbar-link" to="/about">About</RouterLink>
-        <RouterLink class="navbar-link" to="/profile">
+        <RouterLink class="navbar-link hidden" to="/about">About</RouterLink>
+        <RouterLink class="navbar-link hidden" to="/profile">
           <img id="user-icon" src="./assets/user-icon.svg">
         </RouterLink>
       </nav>
     </section>
   </header>
-  <main>
-    <RouterView />
+  <main class="maxwidth">
+    <Suspense>
+      <RouterView />
+    </Suspense>
   </main>
-  <footer>
+  <footer class="maxwidth">
     &copy; 2022 The 42nd
   </footer>
 </template>
@@ -33,18 +35,16 @@ import { RouterLink, RouterView } from 'vue-router'
   align-items: center;
 }
 
-#app * {
+#app > header,
+#app > footer,
+#app > main,
+nav {
   width: 100%;
-}
-
-#app > header > section,
-#app > main {
-  max-width: 1440px;
 }
 
 #app > main {
   flex: 1;
-  padding: 15px;
+  background: whitesmoke;
 }
 
 section {
@@ -56,9 +56,11 @@ section {
 }
 
 header > section > div {
+  white-space: nowrap;
   font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-shadow: 2px 2px rgba(0, 0, 0, .45);
 }
 
 header {
@@ -66,7 +68,8 @@ header {
   flex-direction: column;
   align-items: center;
   background-color: var(--purple);
-  box-shadow: 0 0 20px black;
+  /* box-shadow: 0 0 20px black; */
+  z-index: 2;
 }
 
 header,
@@ -106,7 +109,23 @@ footer {
 }
 
 footer {
-  background: var(--gold);
+  background: var(--purple);
+  color: white;
   text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  header > section > div {
+    white-space: normal;
+  }
+
+  nav {
+    flex-direction: column;
+    text-align: right;
+  }
 }
 </style>
