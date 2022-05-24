@@ -18,9 +18,7 @@ export const useGameLibraryStore = defineStore({
                       .then(data => {
                         const parser = new DOMParser();
                         const document = parser.parseFromString(data, "text/xml");
-
                         const items = Array.from(document.getElementsByTagName("item"));
-                        console.dir(items);
 
                         this.games = items.map(item => {
                           let nameChildNode = Array.from(item.children).find(c => c.nodeName == "name");

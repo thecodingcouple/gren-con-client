@@ -39,6 +39,7 @@ const imgAlt = computed(() => {
     color: white;
     padding: 15px 5px;
     height: 70px;
+    overflow-wrap: break-word;
 }
 
 .gamecard_image {
@@ -52,6 +53,27 @@ const imgAlt = computed(() => {
     object-fit: contain;
 }
 
+
+@media (max-width: 1400px) {
+    .gamecard {
+        width: auto;
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .gamecard_image {
+        max-width: 150px;
+        max-height: 150px;
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .gamecard figcaption {
+        inline-size: 200px;
+    }
+}
+
 @media (max-width: 800px) {
     .gamecard {
         width: auto;
@@ -60,11 +82,15 @@ const imgAlt = computed(() => {
     }
 
     .gamecard_image {
-        max-width: 400px;
+        max-width: 365px;
         max-height: none;
-        width: 400px;
-        height: 400px;
+        width: 365px;
+        height: 365px;
         object-fit: cover;
+    }
+
+    .gamecard figcaption {
+        inline-size: auto;
     }
 }
 </style>
