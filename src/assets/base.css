@@ -21,7 +21,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Roboto', sans-serif;
-  background: url('public/dice.jpg');
+  background: url('dice.jpg');
   display: flex;
 }
 

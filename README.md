@@ -232,6 +232,13 @@ npm run test:e2e # or `npm run test:e2e:ci` for headless testing
 npm run lint
 ```
 
+### Deploy to gh-pages
+
+```sh
+git add dist && git commit -m "updating gh-pages"
+git subtree push --prefix dist origin gh-pages
+```
+
 ## Maintainers
 
 * [Ashley Grenon - @townsean](https://github.com/townsean)
