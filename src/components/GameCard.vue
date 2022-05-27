@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 
 const props = defineProps({
+    id: String,
     name: String,
     imageUrl: String
 });
@@ -13,10 +14,12 @@ const imgAlt = computed(() => {
 </script>
 
 <template>
-    <figure class="gamecard">
-        <img class="gamecard_image" :src="imageUrl" :alt="imgAlt" loading="lazy" />
-        <figcaption>{{ name }}</figcaption>
-    </figure>
+    <a :href="'/game/' + id">
+        <figure class="gamecard">
+            <img class="gamecard_image" :src="imageUrl" :alt="imgAlt" loading="lazy" />
+            <figcaption>{{ name }}</figcaption>
+        </figure>
+    </a>
 </template>
 
 <style>
