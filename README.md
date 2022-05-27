@@ -239,6 +239,12 @@ git add dist && git commit -m "updating gh-pages"
 git subtree push --prefix dist origin gh-pages
 ```
 
+or
+
+```sh
+npm run deploy
+```
+
 ## Maintainers
 
 * [Ashley Grenon - @townsean](https://github.com/townsean)
