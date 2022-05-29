@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <div>Gren Con</div>
       <nav>
         <RouterLink class="navbar-link hidden" to="/">Home</RouterLink>
-        <RouterLink class="navbar-link" to="/library">Game Library</RouterLink>
+        <RouterLink class="navbar-link" to="/games">Game Library</RouterLink>
         <RouterLink class="navbar-link hidden" to="/about">About</RouterLink>
         <RouterLink class="navbar-link hidden" to="/profile">
           <img id="user-icon" src="./assets/user-icon.svg">
