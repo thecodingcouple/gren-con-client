@@ -49,7 +49,7 @@ if(!gameLibraryStore.count) {
 
 .game-detail-section {
   display: block;
-  margin: 10px;
+  margin: 30px;
 }
 
 .game-detail-section > img {
@@ -74,6 +74,7 @@ if(!gameLibraryStore.count) {
 .category {
   margin: 5px;
   padding: 5px;
+  border-radius: 5px;
   background: var(--teal);
   color: white;
 }

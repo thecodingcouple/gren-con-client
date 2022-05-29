@@ -25,7 +25,7 @@ const imgAlt = computed(() => {
 <style>
 @import '@/assets/base.css';
 
-template > a {
+a {
   text-decoration: none;
 }
 
