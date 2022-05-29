@@ -13,44 +13,52 @@ if(!gameLibraryStore.count) {
 </script>
 
 <template>
-  <main class="game-detail-view">
+  <main>
     <h1>Game Details</h1>
 
-    <h2>{{ gameLibraryStore.gameDetails.name }}</h2>
+    <section class="game-detail-section">
+      <h2>{{ gameLibraryStore.gameDetails.name }}</h2>
 
-    <img :src="gameLibraryStore.gameDetails.imageUrl" loading="lazy" />
+      <img :src="gameLibraryStore.gameDetails.imageUrl" loading="lazy" />
 
-    <p class="game-description">{{ gameLibraryStore.gameDetails.description }}</p>
+      <p class="game-description" v-html="gameLibraryStore.gameDetails.description"></p>
 
-    <ul class="game-info-list">
-      <li>
-        <b>min players: </b>{{ gameLibraryStore.gameDetails.minPlayers }}
-      </li>
-      <li>
-        <b>max players: </b>{{ gameLibraryStore.gameDetails.maxPlayers }}
-      </li>
-      <li>
-        <b>playing time: </b>{{ gameLibraryStore.gameDetails.playingTime }}
-      </li>
-    </ul>
+      <ul class="game-info-list">
+        <li>
+          <b>min players: </b>{{ gameLibraryStore.gameDetails.minPlayers }}
+        </li>
+        <li>
+          <b>max players: </b>{{ gameLibraryStore.gameDetails.maxPlayers }}
+        </li>
+        <li>
+          <b>playing time: </b>{{ gameLibraryStore.gameDetails.playingTime }}
+        </li>
+      </ul>
 
-    <div class="category_container">
-      <span class="category" v-for="(category) in gameLibraryStore.gameDetails.categories" :key="index">
-        {{ category }}
-      </span>
-    </div>
+      <div class="category_container">
+        <span class="category" v-for="(category, index) in gameLibraryStore.gameDetails.categories" :key="index">
+          {{ category }}
+        </span>
+      </div>
+    </section>
   </main>
 </template>
 
 <style>
 @import '@/assets/base.css';
 
-.game-detail-view {
+.game-detail-section {
+  display: block;
   margin: 10px;
+}
+
+.game-detail-section > img {
+  max-height: 25vh;
 }
 
 .game-description {
   margin-top: 10px;
+  margin-right: 20px;
 }
 
 .game-info-list {
@@ -66,8 +74,8 @@ if(!gameLibraryStore.count) {
 .category {
   margin: 5px;
   padding: 5px;
-  border-radius: 5px;
-  border: 4px solid var(--teal);
+  background: var(--teal);
+  color: white;
 }
 </style>
 

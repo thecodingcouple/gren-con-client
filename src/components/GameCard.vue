@@ -14,7 +14,7 @@ const imgAlt = computed(() => {
 </script>
 
 <template>
-    <a :href="'/game/' + id">
+    <a :href="'/games/' + id">
         <figure class="gamecard">
             <img class="gamecard_image" :src="imageUrl" :alt="imgAlt" loading="lazy" />
             <figcaption>{{ name }}</figcaption>
@@ -24,6 +24,10 @@ const imgAlt = computed(() => {
 
 <style>
 @import '@/assets/base.css';
+
+template > a {
+  text-decoration: none;
+}
 
 .gamecard {
     width: 15vw;
