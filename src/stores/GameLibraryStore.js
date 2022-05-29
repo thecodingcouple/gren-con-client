@@ -28,8 +28,11 @@ export const useGameLibraryStore = defineStore({
                           let imageUrlChildNode = Array.from(item.children).find(c => c.nodeName == "image");
                           let imageUrl = imageUrlChildNode.textContent;
 
+                          let id = item.getAttribute("objectid");
+
                           return {
                             name,
+                            id,
                             imageUrl
                           }
                         });
@@ -49,7 +52,7 @@ export const useGameLibraryStore = defineStore({
                         const parser = new DOMParser();
                         const document = parser.parseFromString(data, "text/xml");
 
-                        const items = Array.from(document.getElementsByName("item"));
+                        const items = Array.from(document.getElementsByTagName("item"));
                         const item = items[0];
 
                         if(!item) {
@@ -59,8 +62,37 @@ export const useGameLibraryStore = defineStore({
                         const descriptionChildNode = Array.from(item.children).find(c => c.nodeName == "description");
                         const description = descriptionChildNode.textContent;
 
-                        console.log(description);
+                        const nameChildNode = Array.from(item.children).find(c => c.nodeName == "name");
+                        const name = nameChildNode.getAttribute("value");
 
+                        const imageUrlChildNode = Array.from(item.children).find(c => c.nodeName == "image");
+                        const imageUrl = imageUrlChildNode.textContent;
+
+                        const playingTimeChildNode = Array.from(item.children).find(c => c.nodeName == "playingtime");
+                        const playingTime = playingTimeChildNode.getAttribute("value");
+
+                        const minPlayersChildNode = Array.from(item.children).find(c => c.nodeName == "minplayers");
+                        const minPlayers = minPlayersChildNode.getAttribute("value");
+
+                        const maxPlayersChildNode = Array.from(item.children).find(c => c.nodeName == "maxplayers");
+                        const maxPlayers = maxPlayersChildNode.getAttribute("value");
+
+                        const linkNodes = Array.from(document.getElementsByTagName("link"));
+                        const categories = linkNodes.filter((link) => {
+                          return link.getAttribute("type") == "boardgamecategory";
+                        }).map((link) => {
+                          return link.getAttribute("value");
+                        });
+
+                        this.gameDetails = {
+                          name,
+                          imageUrl,
+                          minPlayers,
+                          maxPlayers,
+                          playingTime,
+                          description,
+                          categories
+                        }
                       });
     }
   }

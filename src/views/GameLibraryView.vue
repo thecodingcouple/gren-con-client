@@ -20,7 +20,7 @@ onMounted(() => {
     <p>Choose from over <strong>{{ gameLibraryStore.roundedCount }}+</strong> board games and expansions!</p>
     <section class="library-section">
         <!-- Games -->
-        <GameCard  v-for="(game, index) in gameLibraryStore.games" :key="index" :name="game.name" :imageUrl="game.imageUrl" />
+        <GameCard  v-for="(game, index) in gameLibraryStore.games" :key="index" :name="game.name" :imageUrl="game.imageUrl" :id="game.id" />
     </section>
   </main>
 </template>
