@@ -93,15 +93,14 @@ a {
     }
 
     .gamecard_image {
-        max-width: 365px;
-        max-height: none;
-        width: 365px;
-        height: 365px;
-        object-fit: cover;
+        max-width: 250px;
+        max-height: 250px;
+        width: 250px;
+        height: 250px;
     }
 
     .gamecard figcaption {
-        inline-size: auto;
+        inline-size: 250px;
     }
 }
 </style>

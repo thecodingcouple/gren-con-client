@@ -40,10 +40,4 @@ onMounted(() => {
   width: 100%;
   justify-content: center;
 }
-
-@media (max-width: 800px) {
-  .library-section {
-    flex-direction: column;
-  }
-}
 </style>
