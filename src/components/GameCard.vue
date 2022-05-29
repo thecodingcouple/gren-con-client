@@ -11,15 +11,19 @@ const imgAlt = computed(() => {
     return props.name ? `${props.name} board game box photo` : 'Board game box art';
 });
 
+const routeTo = computed(() => {
+    return { name: 'game', params: { id: props.id }};
+});
+
 </script>
 
 <template>
-    <a :href="'/games/' + id">
+    <RouterLink :to="routeTo">
         <figure class="gamecard">
             <img class="gamecard_image" :src="imageUrl" :alt="imgAlt" loading="lazy" />
             <figcaption>{{ name }}</figcaption>
         </figure>
-    </a>
+    </RouterLink>
 </template>
 
 <style>
