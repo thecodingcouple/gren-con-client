@@ -4,12 +4,9 @@ import { useGameLibraryStore } from '../stores/GameLibraryStore.js';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-
 const gameLibraryStore = useGameLibraryStore();
+const game = await gameLibraryStore.getGameDetails(route.params.id);
 
-if(!gameLibraryStore.count) {
-  await gameLibraryStore.getGameDetails(route.params.id);
-}
 </script>
 
 <template>
@@ -17,26 +14,26 @@ if(!gameLibraryStore.count) {
     <h1>Game Details</h1>
 
     <section class="game-detail-section">
-      <h2>{{ gameLibraryStore.gameDetails.name }}</h2>
+      <h2>{{ game.name }}</h2>
 
-      <img :src="gameLibraryStore.gameDetails.imageUrl" loading="lazy" />
+      <img :src="game.imageUrl" loading="lazy" />
 
-      <p class="game-description" v-html="gameLibraryStore.gameDetails.description"></p>
+      <p class="game-description" v-html="game.description"></p>
 
       <ul class="game-info-list">
         <li>
-          <b>min players: </b>{{ gameLibraryStore.gameDetails.minPlayers }}
+          <b>min players: </b>{{ game.minPlayers }}
         </li>
         <li>
-          <b>max players: </b>{{ gameLibraryStore.gameDetails.maxPlayers }}
+          <b>max players: </b>{{ game.maxPlayers }}
         </li>
         <li>
-          <b>playing time: </b>{{ gameLibraryStore.gameDetails.playingTime }}
+          <b>playing time: </b>{{ game.playingTime }}
         </li>
       </ul>
 
       <div class="category_container">
-        <span class="category" v-for="(category, index) in gameLibraryStore.gameDetails.categories" :key="index">
+        <span class="category" v-for="(category, index) in game.categories" :key="index">
           {{ category }}
         </span>
       </div>

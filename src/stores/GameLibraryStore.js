@@ -46,8 +46,7 @@ export const useGameLibraryStore = defineStore({
       }
 
       const url = `https://boardgamegeek.com/xmlapi2/thing?id=${id}`;
-
-      await fetch(url).then(response => response.text())
+      const game = await fetch(url).then(response => response.text())
                       .then(data => {
                         const parser = new DOMParser();
                         const document = parser.parseFromString(data, "text/xml");
@@ -84,7 +83,7 @@ export const useGameLibraryStore = defineStore({
                           return link.getAttribute("value");
                         });
 
-                        this.gameDetails = {
+                        return {
                           name,
                           imageUrl,
                           minPlayers,
@@ -94,6 +93,9 @@ export const useGameLibraryStore = defineStore({
                           categories
                         }
                       });
+
+      this.gameDetails[id] = game;
+      return this.gameDetails[id];
     }
   }
 })
